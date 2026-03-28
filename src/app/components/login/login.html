@@ -1,329 +1,193 @@
 <!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nocturnal - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nocturnal Chat Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "inverse-on-surface": "#283044",
-              "on-primary-fixed": "#00174b",
-              "on-tertiary-container": "#c1ffc5",
-              "tertiary": "#4ae176",
-              "on-secondary-container": "#aeb9d0",
-              "surface-tint": "#b4c5ff",
-              "surface-container-high": "#222a3d",
-              "tertiary-fixed": "#6bff8f",
-              "inverse-surface": "#dae2fd",
-              "inverse-primary": "#0053db",
-              "secondary": "#bcc7de",
-              "outline-variant": "#434655",
-              "on-surface": "#dae2fd",
-              "on-surface-variant": "#c3c6d7",
-              "primary-container": "#2563eb",
-              "primary-fixed": "#dbe1ff",
-              "tertiary-container": "#007e37",
-              "on-secondary-fixed": "#111c2d",
-              "error": "#ffb4ab",
-              "on-background": "#dae2fd",
-              "surface-bright": "#31394d",
-              "outline": "#8d90a0",
-              "on-tertiary-fixed-variant": "#005321",
-              "background": "#0b1326",
-              "primary": "#b4c5ff",
-              "surface-variant": "#2d3449",
-              "on-primary-fixed-variant": "#003ea8",
-              "on-tertiary-fixed": "#002109",
-              "on-secondary": "#263143",
-              "on-primary-container": "#eeefff",
-              "on-tertiary": "#003915",
-              "primary-fixed-dim": "#b4c5ff",
-              "surface-dim": "#0b1326",
-              "on-error-container": "#ffdad6",
-              "surface-container-highest": "#2d3449",
-              "on-error": "#690005",
-              "secondary-fixed": "#d8e3fb",
-              "on-primary": "#002a78",
-              "surface": "#0b1326",
-              "surface-container-lowest": "#060e20",
-              "on-secondary-fixed-variant": "#3c475a",
-              "tertiary-fixed-dim": "#4ae176",
-              "secondary-container": "#3e495d",
-              "secondary-fixed-dim": "#bcc7de",
-              "surface-container": "#171f33",
-              "error-container": "#93000a",
-              "surface-container-low": "#131b2e"
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#283044",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-container": "#c1ffc5",
+                        "tertiary": "#4ae176",
+                        "on-secondary-container": "#aeb9d0",
+                        "surface-tint": "#b4c5ff",
+                        "surface-container-high": "#222a3d",
+                        "tertiary-fixed": "#6bff8f",
+                        "inverse-surface": "#dae2fd",
+                        "inverse-primary": "#0053db",
+                        "secondary": "#bcc7de",
+                        "outline-variant": "#434655",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#c3c6d7",
+                        "primary-container": "#2563eb",
+                        "primary-fixed": "#dbe1ff",
+                        "tertiary-container": "#007e37",
+                        "on-secondary-fixed": "#111c2d",
+                        "error": "#ffb4ab",
+                        "on-background": "#dae2fd",
+                        "surface-bright": "#31394d",
+                        "outline": "#8d90a0",
+                        "on-tertiary-fixed-variant": "#005321",
+                        "background": "#0b1326",
+                        "primary": "#b4c5ff",
+                        "surface-variant": "#2d3449",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-fixed": "#002109",
+                        "on-secondary": "#263143",
+                        "on-primary-container": "#eeefff",
+                        "on-tertiary": "#003915",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-dim": "#0b1326",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#2d3449",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#d8e3fb",
+                        "on-primary": "#002a78",
+                        "surface": "#0b1326",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "tertiary-fixed-dim": "#4ae176",
+                        "secondary-container": "#3e495d",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "surface-container": "#171f33",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#131b2e"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
             },
-            fontFamily: {
-              "headline": ["Inter"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
+        }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
+    <style>
+        .glass-panel {
+            background: rgba(23, 31, 51, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-<div class="flex h-screen overflow-hidden">
-<!-- SideNavBar Rail/Sidebar (Shared Component Execution) -->
-<aside class="flex flex-col h-screen fixed left-0 top-0 z-40 bg-slate-900 dark:bg-[#131b2e] h-full w-20 md:w-64 border-r-0 bg-gradient-to-r from-[#131b2e] to-[#171f33] font-inter antialiased tracking-tight">
-<!-- Header Section -->
-<div class="p-6 flex items-center space-x-3">
-<div class="relative">
-<img alt="User profile" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a man with short hair and a clean-shaven face, looking thoughtfully into the distance with soft moody studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYHFUAGG-DACV1BpINiWr8WS08h9ob88mD_NKQHh6vn4vTntAG8LxC18MgNV3y3Cu-IFNugOXxlE9w38ouoRjLVu2IiSr09wIghrHEbU7JrvMZHTFGWakHAE350BaQRDut3Cz92lGap5PnL27JQ-bRWtBg4uDJmQCtAqQVI86TfK87yZJjtRaJTdE92MHfSgdtILKYm1bkQ1JGJ7NKh9Gi-y-q7yyC5RRl6TV_HUfWztjEDF_hjfRUJVcbnTwyilsznEvkEROMnh1t"/>
-<div class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary rounded-full border-2 border-[#131b2e]"></div>
-</div>
-<div class="hidden md:block">
-<h1 class="text-xl font-bold text-slate-100 dark:text-blue-100 leading-none">Nocturnal</h1>
-<p class="text-xs text-tertiary mt-1 opacity-80">Online</p>
-</div>
-</div>
-<!-- Main Navigation -->
-<nav class="flex-1 px-3 mt-4 space-y-2">
-<!-- Chats (Active) -->
-<a class="flex items-center px-4 py-3 rounded-xl transition-colors text-blue-500 dark:text-[#b4c5ff] font-semibold border-r-2 border-[#2563eb] hover:bg-slate-800 dark:hover:bg-[#171f33] scale-95 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined mr-4" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
-<span class="hidden md:block">Chats</span>
-</a>
-<!-- Contacts -->
-<a class="flex items-center px-4 py-3 rounded-xl transition-colors text-slate-400 dark:text-[#c3c6d7] hover:bg-slate-800 dark:hover:bg-[#171f33] scale-95 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined mr-4" data-icon="group">group</span>
-<span class="hidden md:block">Contacts</span>
-</a>
-<!-- Calls -->
-<a class="flex items-center px-4 py-3 rounded-xl transition-colors text-slate-400 dark:text-[#c3c6d7] hover:bg-slate-800 dark:hover:bg-[#171f33] scale-95 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined mr-4" data-icon="call">call</span>
-<span class="hidden md:block">Calls</span>
-</a>
-<!-- Settings -->
-<a class="flex items-center px-4 py-3 rounded-xl transition-colors text-slate-400 dark:text-[#c3c6d7] hover:bg-slate-800 dark:hover:bg-[#171f33] scale-95 active:scale-90 transition-transform" href="#">
-<span class="material-symbols-outlined mr-4" data-icon="settings">settings</span>
-<span class="hidden md:block">Settings</span>
-</a>
-</nav>
-<!-- CTA -->
-<div class="p-4 mt-auto">
-<button class="w-full flex items-center justify-center bg-primary-container text-on-primary-container p-3 rounded-xl font-bold scale-95 active:scale-90 transition-transform hover:shadow-lg hover:shadow-primary-container/20">
-<span class="material-symbols-outlined md:mr-2" data-icon="add">add</span>
-<span class="hidden md:block">new_chat</span>
-</button>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="flex flex-1 ml-20 md:ml-64 h-screen bg-surface-container-low">
-<!-- Conversation List Sidebar -->
-<div class="w-80 border-r border-white/5 bg-surface-container-low flex flex-col hidden lg:flex">
-<div class="p-6">
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
-<input class="w-full bg-surface-container-highest border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/40 placeholder:text-on-surface-variant/50" placeholder="Search conversations..." type="text"/>
-</div>
-</div>
-<div class="flex-1 overflow-y-auto hide-scrollbar space-y-1 px-3">
-<!-- Chat Item 1 (Active) -->
-<div class="p-4 rounded-xl bg-surface-container-high border-l-4 border-primary transition-all cursor-pointer">
-<div class="flex items-center space-x-3">
-<div class="relative flex-shrink-0">
-<img alt="Active chat partner" class="w-12 h-12 rounded-full object-cover" data-alt="Vibrant portrait of a woman with curly hair smiling warmly, soft bokeh forest background with dappled sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ9a9FvxQ8klr-Ov6cipu8Q02MckkfRY11cc-Hz1tbJePPS_QplUbpYGuiuoEK4BRNdMLYpIpqhAH0n9l5Y6TzGS1r21YBFFtb4VMSFirQvII8fH210dMT-u_SgpMSNpupRbL7MUYb9WOLL3xFBsgHJLz7DXr1QeCo2buoVbg8awPXyBLTQV_DpzqF5nhlJTUKb8yupgcr0ob029ogXDO8U5iIb80V0ofqfsUCf5f4n3aaDiqq4tHy8YThVKsm1bMdc1L0tsq6clzv"/>
-<div class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container-high"></div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex justify-between items-baseline">
-<h3 class="text-sm font-semibold text-on-surface truncate">Elena Vance</h3>
-<span class="text-[10px] text-on-surface-variant">2m ago</span>
-</div>
-<p class="text-xs text-on-surface-variant truncate font-medium">Is the design system ready yet?</p>
-</div>
-</div>
-</div>
-<!-- Chat Item 2 -->
-<div class="p-4 rounded-xl hover:bg-surface-container transition-all cursor-pointer group">
-<div class="flex items-center space-x-3">
-<div class="relative flex-shrink-0">
-<img alt="Marcus Chen" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Professional headshot of a young man with glasses, wearing a sleek black turtleneck, neutral grey studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYL5v1XktmXLiiEwsPe4Vv7ixrrr2tFryjK8PurbQK1TE1XBhsdagVtyQGIyAwwaPYgpGBBIT-xI4crT0m3dFsz2rlf4E0jjmMSMNcmc8E3L3IAcZ4_EsxP_ApfpTPkOitkKP31N4Gytst4Euz2fFB2WyXjELxZbSRoF9QUvW29h5M344DPLAOa6hBdbRuHTfAcrtJMfICFY2-8QqeU3mFX2kdeQH28-DeiBYIo3KYTr0Ai8dDDBu6cm9oBUGu4sANxNEL-fqjtdUY"/>
-<div class="absolute bottom-0 right-0 w-3 h-3 bg-outline rounded-full border-2 border-surface-container-low"></div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex justify-between items-baseline">
-<h3 class="text-sm font-semibold text-on-surface/80 truncate">Marcus Chen</h3>
-<span class="text-[10px] text-on-surface-variant">1h ago</span>
-</div>
-<p class="text-xs text-on-surface-variant truncate">The backend is pushing to prod...</p>
-</div>
-</div>
-</div>
-<!-- Chat Item 3 -->
-<div class="p-4 rounded-xl hover:bg-surface-container transition-all cursor-pointer group">
-<div class="flex items-center space-x-3">
-<div class="relative flex-shrink-0">
-<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">JD</div>
-<div class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container-low"></div>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex justify-between items-baseline">
-<h3 class="text-sm font-semibold text-on-surface/80 truncate">Jane Doe</h3>
-<span class="text-[10px] text-on-surface-variant">Yesterday</span>
-</div>
-<p class="text-xs text-on-surface-variant truncate">Sent a photo</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Active Chat Window -->
-<section class="flex-1 flex flex-col bg-surface-container relative">
-<!-- TopNavBar (Shared Component Execution) -->
-<header class="flex justify-between items-center w-full px-6 py-3 border-b border-white/5 sticky top-0 bg-slate-900/80 dark:bg-[#171f33]/80 backdrop-blur-xl z-30">
-<div class="flex items-center space-x-4">
-<div class="relative">
-<img alt="Active chat partner" class="w-10 h-10 rounded-full object-cover border border-white/10" data-alt="Close up portrait of a woman with curly hair and a warm smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi4PAiHQAUVg0TeljGpcNd5pfKsdWJOsbNQVOWZCDzd72wGh4OSli2QNi0NaR6BOO5z5YcEK26uGB16HM7Of2APf2LArKRfVzMu7TYzibHCpo3MdsS0nK9B2iA2fMzOqVh4yqnb8N-yaQ7jiTy4q9k0vUAZMl2fnMXVnOogn5Hi_ZY7f0J0DokGN6nl7n2ksRbwLgB8rkgf5ebMbebzD_LWNOi3fk3EarWrKYpGRJefka5G5VQ3qGn2DOl-3A0LKf2746COyoXlTa-"/>
-<div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container"></div>
-</div>
-<div>
-<h2 class="text-lg font-black text-slate-100 dark:text-[#b4c5ff] leading-tight headline-sm font-inter tracking-tight">Elena Vance</h2>
-<p class="text-[11px] text-tertiary flex items-center">
-<span class="w-1.5 h-1.5 bg-tertiary rounded-full mr-1.5 animate-pulse"></span>
-                                typing...
-                            </p>
-</div>
-</div>
-<div class="flex items-center space-x-2 text-slate-400 dark:text-[#c3c6d7]">
-<button class="p-2 rounded-full hover:text-blue-400 dark:hover:text-[#b4c5ff] opacity-80 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
-</button>
-<button class="p-2 rounded-full hover:text-blue-400 dark:hover:text-[#b4c5ff] opacity-80 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined" data-icon="call">call</span>
-</button>
-<button class="p-2 rounded-full hover:text-blue-400 dark:hover:text-[#b4c5ff] opacity-80 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined" data-icon="info">info</span>
-</button>
-</div>
-</header>
-<!-- Message History Area -->
-<div class="flex-1 overflow-y-auto p-6 space-y-6 hide-scrollbar">
-<!-- Date Divider -->
-<div class="flex justify-center">
-<span class="px-4 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Today</span>
-</div>
-<!-- Received Message -->
-<div class="flex items-end space-x-2 max-w-[80%]">
-<img alt="Elena Vance" class="w-8 h-8 rounded-full object-cover mb-1" data-alt="Profile photo of Elena Vance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgynRcagWFFbljmdJuknHn9cftEwAK4WCIpixx8-S3jQ_F4fWd9i-3NcmGXDFRvOklAnIteK7H36vrspEQ4qskAhU4_cI9wgkirB_RN9JvJuO2Xvq19DLEBBsBRgfXKk0vBnTTJw2Yr1CQeACz4zCkaAQ_LCLjt0fz_19C5kxii5eD8KgeTtBPFKep-M5cIorBD8mQ-X37E0ym9ZYOWBOvB2YiJsbZznsRUw6u67j9WSEpKRUVC0smtZRF583AbeZ0oZxJAqTxWP_K"/>
-<div class="flex flex-col space-y-1">
-<div class="bg-surface-variant text-on-surface px-4 py-3 rounded-lg rounded-bl-sm shadow-sm">
-<p class="text-sm font-body leading-relaxed">Hey! I've been reviewing the latest Nocturnal design system updates. The new tonal transitions look incredible.</p>
-</div>
-<span class="text-[10px] text-on-surface-variant ml-1 font-label">10:42 AM</span>
-</div>
-</div>
-<!-- Sent Message -->
-<div class="flex flex-col items-end space-y-1 ml-auto max-w-[80%]">
-<div class="bg-primary-container text-on-primary-container px-4 py-3 rounded-lg rounded-br-sm shadow-lg shadow-primary-container/10 border-t border-white/10">
-<p class="text-sm font-body leading-relaxed">Thanks Elena! I really focused on the "No-Line" rule to create that infinite depth feel. Did you check the glassmorphism on the headers?</p>
-</div>
-<div class="flex items-center space-x-1 mr-1">
-<span class="text-[10px] text-on-surface-variant font-label">10:45 AM</span>
-<span class="material-symbols-outlined text-[12px] text-primary" data-icon="done_all" style="font-variation-settings: 'FILL' 1;">done_all</span>
-</div>
-</div>
-<!-- Received Message -->
-<div class="flex items-end space-x-2 max-w-[80%]">
-<img alt="Elena Vance" class="w-8 h-8 rounded-full object-cover mb-1" data-alt="Profile photo of Elena Vance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc7Cmzvqb3i1d5-bFpqyt_CQuxYM3ibW-GsJODICSzQir-vpEfpxi1CHW49kx6s2DxIcFoRIUdFtBFBxJbZAbbRtEknkgtyccqp-BB_u4WMS6cHw6nHzTACLwcj08G0LJiAUSwNHRv6nvkGEw8wD5vcaRtoQZ1Is4iHOz27NV-MKAx0s7ge4sctfT7JrSBna3c132M0u0c62CQIctE5ha1QJKGQuvOqPKTbzNf1xOfeSfO0E7Wbgey-rBA1dfVEAMSMY5yQSkWWXDZ"/>
-<div class="flex flex-col space-y-1">
-<div class="bg-surface-variant text-on-surface px-4 py-3 rounded-lg rounded-bl-sm shadow-sm">
-<p class="text-sm font-body leading-relaxed">Yes! It feels so much more premium. Are the message bubbles using the new rounded-xl tokens?</p>
-</div>
-<span class="text-[10px] text-on-surface-variant ml-1 font-label">10:46 AM</span>
-</div>
-</div>
-<!-- Typing Indicator -->
-<div class="flex items-center space-x-2 ml-10">
-<div class="flex space-x-1 bg-surface-variant px-3 py-2 rounded-full opacity-60">
-<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-<div class="w-1.5 h-1.5 bg-on-surface-variant rounded-full animate-bounce"></div>
-</div>
-</div>
-</div>
-<!-- Fixed Bottom Input Area -->
-<footer class="p-6 bg-surface-container-low/50 backdrop-blur-md">
-<div class="max-w-4xl mx-auto flex items-end space-x-3 bg-surface-container-highest rounded-2xl p-2 transition-all ring-1 ring-white/5 focus-within:ring-primary/40 focus-within:shadow-2xl focus-within:shadow-primary-container/10">
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="mood">mood</span>
-</button>
-<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
-</button>
-<div class="flex-1 pb-1">
-<textarea class="w-full bg-transparent border-none text-on-surface placeholder:text-on-surface-variant/40 focus:ring-0 resize-none max-h-32 font-body text-sm py-2" placeholder="Type a message..." rows="1"></textarea>
-</div>
-<button class="bg-primary-container text-on-primary-container p-3 rounded-xl shadow-lg shadow-primary-container/20 hover:scale-105 active:scale-95 transition-all">
-<span class="material-symbols-outlined flex items-center justify-center translate-x-0.5" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
-</button>
-</div>
-</footer>
-</section>
-<!-- Right Detail Sidebar (Optional Expansion) -->
-<div class="w-72 border-l border-white/5 bg-surface-container-low hidden xl:flex flex-col overflow-y-auto hide-scrollbar">
-<div class="p-8 flex flex-col items-center text-center">
-<img alt="Elena Vance Expanded" class="w-32 h-32 rounded-3xl object-cover mb-4 shadow-2xl" data-alt="Detailed close-up of a woman with curly hair against a soft dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsH9lj3VW3vt552v3Qjg1ViNrHm9Rsm91fNNm7-nZ54svc6vhiReUpCQ0EZGkqEhhPjXTtCnU-c0flfohV6gS2kjVrN4lrOh9FcAO2LVipTbw2jg1E5fiEX9rPUckw2tN-38WqlG2C3Y4cdvijmNXUmQqlScMjSBJ6ub6HqxBPMZIr_ADCvWvbNH2_oDzFtaAPd_LKiNILRZfm541aCKoSD8Sy9kjMQ6UoRgYBF4WdkSMWwyxhztT8f-XQodjRKQTF67GdavNEW7Sw"/>
-<h3 class="text-xl font-black text-on-surface">Elena Vance</h3>
-<p class="text-sm text-on-surface-variant mb-6">Senior UI Architect</p>
-<div class="flex space-x-3 w-full">
-<button class="flex-1 flex flex-col items-center p-3 rounded-2xl bg-surface-container hover:bg-surface-variant transition-colors group">
-<span class="material-symbols-outlined text-primary mb-1 group-hover:scale-110 transition-transform" data-icon="person">person</span>
-<span class="text-[10px] font-bold text-on-surface-variant uppercase">Profile</span>
-</button>
-<button class="flex-1 flex flex-col items-center p-3 rounded-2xl bg-surface-container hover:bg-surface-variant transition-colors group">
-<span class="material-symbols-outlined text-primary mb-1 group-hover:scale-110 transition-transform" data-icon="notifications">notifications</span>
-<span class="text-[10px] font-bold text-on-surface-variant uppercase">Mute</span>
-</button>
-</div>
-</div>
-<div class="px-6 space-y-6">
-<div>
-<h4 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-3">Shared Media</h4>
-<div class="grid grid-cols-3 gap-2">
-<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-white/5 cursor-pointer hover:opacity-80 transition-opacity">
-<img class="w-full h-full object-cover" data-alt="Cyberpunk workspace with neon lighting and multiple monitors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-jGHsbz-dPteFGlPaqWrM32J4SF21x5fWK-3o6mYE3Y9ZSaL22J5bfc13zyrE5DYdwn83T13yBUIVD2MbWQvUFNwsyUJxl9ggR86xwsLlqZPz7DM_16HXJ_4gS05le1N2TIxjI5-exPIOI14PloNyo6KWcAuQXsKsZ9-lxmy_xfbHU1ltO5shwstcMFT578g3gwPkw1iQmItZqef4NjRH3PUZLxRSaAZC9s8LxtxQqQVxd_C6w0IBj59f3XpLGWoo7nv8uNbk-x9q"/>
-</div>
-<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-white/5 cursor-pointer hover:opacity-80 transition-opacity">
-<img class="w-full h-full object-cover" data-alt="Abstract matrix code flowing vertically in green and black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5fjElhGCm_aXm_wBXAMBJ3_AieZiRInIODTLTfs4NaXJSQjUhHeTTgfPK6kDuaKU5fLa3PYQG3FXYtRi0wbShpKIW59OOon_vuH9JJaC570yiXniUslEESDlvDjceg0ZRISMimOzJONi5vZWSEBOXmimIqV8tKw9FUBTX2sk6ZKMo24Q744u3TjrhK0-pZCA2cxCDILAdW4lQ0F1GCQOmlq1aBx70YfjmvyFjXoBdOyzVPLkMAFOa7jaOi4fpDtrmQgs5MoFiqUsm"/>
-</div>
-<div class="aspect-square bg-surface-container rounded-lg flex items-center justify-center text-xs font-bold text-on-surface-variant cursor-pointer hover:bg-surface-variant transition-colors">
-                                +12
+
+<body class="bg-surface-container-lowest font-body text-on-surface min-h-screen flex items-center justify-center antialiased">
+    
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary-container/10 blur-[120px]"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/5 blur-[120px]"></div>
+    </div>
+
+    <main class="relative w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 glass-panel overflow-hidden shadow-none border-none">
+        
+        <section class="hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-surface-container-low to-surface-container-lowest relative overflow-hidden">
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-12">
+                   
+                    <span class="text-2xl font-black tracking-tighter text-on-surface">ChatRMI</span>
+                </div>
+                
+                <h1 class="text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                    Bem vindo(a) <br/>
+                    <span class="text-primary">ao ChatRMI.</span>
+                </h1>
+                <p class="text-on-surface-variant text-lg max-w-sm">
+                    Um simples espaço para conversas profundas com outros usuários.
+                </p>
+            </div>
+
+            <div class="absolute inset-0 z-0 opacity-30">
+                <img alt="Night background" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+            </div>
+        </section>
+
+        <section class="p-8 md:p-16 flex flex-col justify-center bg-surface-container">
+            <div class="w-full max-w-md mx-auto">
+                <header class="mb-10 text-center lg:text-left">
+                    <h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Seja bem vindo(a) de volta!</h2>
+                    <p class="text-on-surface-variant">Volte para suas conversas.</p>
+                </header>
+
+                <form (ngSubmit)="onsubmit()" class="space-y-6">
+                    
+
+                    <div class="relative flex items-center py-2">
+                        <div class="flex-grow border-t border-outline-variant/30"></div>
+                        <span class="flex-shrink mx-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Entre com sua conta</span>
+                        <div class="flex-grow border-t border-outline-variant/30"></div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-on-surface ml-1" for="email">Email</label>
+                            <div class="relative group">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary" >alternate_email</span>
+                                
+                                <input [(ngModel)]="email" name="email" class="w-full pl-12 pr-4 py-4 rounded-xl bg-surface-container-highest border border-transparent focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="email" placeholder="name@company.com" type="email"/>
                             </div>
-</div>
-</div>
-<div class="space-y-3">
-<h4 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">About</h4>
-<p class="text-sm text-on-surface-variant leading-relaxed italic">"Always building something new. Let's create experiences that feel like magic."</p>
-</div>
-<div class="pt-4 border-t border-white/5">
-<button class="w-full flex items-center text-error text-sm font-semibold p-2 rounded-xl hover:bg-error/10 transition-colors">
-<span class="material-symbols-outlined mr-3 text-sm" data-icon="block">block</span>
-                            Block Elena
-                        </button>
-</div>
-</div>
-</div>
-</main>
-</div>
-</body></html>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center px-1">
+                                <label class="text-sm font-semibold text-on-surface" for="password">Senha</label>
+                                <a class="text-xs font-bold text-primary hover:text-primary-fixed transition-colors" href="#">Esqueceu a senha?</a>
+                            </div>
+                            <div class="relative group">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary">lock</span>
+                                <input [(ngModel)]="password" name="password" class="w-full pl-12 pr-12 py-4 rounded-xl bg-surface-container-highest border border-transparent focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
+                                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 px-1">
+                        <input class="w-4 h-4 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/40 focus:ring-offset-surface-container" id="remember" type="checkbox"/>
+                        <label class="text-sm text-on-surface-variant cursor-pointer select-none" for="remember">Lembrar desta conta</label>
+                    </div>
+
+                    <button class="w-full py-4 rounded-xl bg-primary-container hover:bg-blue-600 text-white font-bold text-lg shadow-xl shadow-primary/20 active:scale-[0.98] transition-all relative overflow-hidden group" type="submit">
+                        <span class="relative z-10">Entrar</span>
+                        <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    </button>
+                </form>
+
+                <footer class="mt-10 text-center">
+                    <p class="text-on-surface-variant">
+                        Não tem uma conta? 
+                        <a class="text-primary font-bold hover:underline underline-offset-4 decoration-2" href="#">Criar Conta</a>
+                    </p>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    
+
+</body>
+</html>
