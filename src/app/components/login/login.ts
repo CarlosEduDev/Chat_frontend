@@ -13,6 +13,7 @@ export class Login {
   email = '';
   password = '';
   isLoading = false;
+  showPassword = false;
 
   validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,6 +35,10 @@ export class Login {
 
     console.log("Login bem-sucedido!");
     return true;
+  }
+
+  togglePassword(){
+    this.showPassword = !this.showPassword;
   }
 
   onsubmit(): boolean{

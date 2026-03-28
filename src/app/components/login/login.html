@@ -158,8 +158,8 @@
                             </div>
                             <div class="relative group">
                                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary">lock</span>
-                                <input [(ngModel)]="password" name="password" class="w-full pl-12 pr-12 py-4 rounded-xl bg-surface-container-highest border border-transparent focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
-                                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+                                <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" class="w-full pl-12 pr-12 py-4 rounded-xl bg-surface-container-highest border border-transparent focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
+                                <button (click)="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors" type="button">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </button>
                             </div>
