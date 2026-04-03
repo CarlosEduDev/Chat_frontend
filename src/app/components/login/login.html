@@ -167,7 +167,7 @@
                     </div>
 
                     <div class="flex items-center gap-2 px-1">
-                        <input class="w-4 h-4 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/40 focus:ring-offset-surface-container" id="remember" type="checkbox"/>
+                        <input [(ngModel)] = "rememberMe" name="rememberMe" type="checkbox" id="remember" class="w-4 h-4 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/40 focus:ring-offset-surface-container"/>
                         <label class="text-sm text-on-surface-variant cursor-pointer select-none" for="remember">Lembrar desta conta</label>
                     </div>
 
