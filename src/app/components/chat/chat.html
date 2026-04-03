@@ -1,1 +1,14 @@
-<p>chat works!</p>
+<nav class="flex justify-between items-center p-4 bg-surface-container border-b border-outline-variant/30">
+  <h1 class="text-xl font-bold text-on-surface">ChatRMI</h1>
+  
+  <button 
+    (click)="logout()" 
+    class="flex items-center gap-2 px-4 py-2 rounded-xl bg-error/10 text-error hover:bg-error hover:text-on-error transition-all font-medium">
+    <span class="material-symbols-outlined text-sm">logout</span>
+    Sair
+  </button>
+</nav>
+
+<div class="p-4">
+  <p class="text-on-surface-variant italic">Bem-vindo ao chat seguro.</p>
+</div>
