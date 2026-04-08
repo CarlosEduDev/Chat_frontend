@@ -1,1 +1,102 @@
-<p>chat works!</p>
+<div class="min-h-screen bg-surface-container-lowest text-on-surface flex items-center justify-center p-0 md:p-4">
+  
+  <div class="fixed inset-0 overflow-'hidden pointer-events-none -z-10">
+    <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary-container/10 blur-[120px]"></div>
+    <div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-tertiary-container/5 blur-[120px]"></div>
+  </div>
+
+  <main class="bg-blue-200 w-full max-w-6xl h-screen md:h-[85vh] glass-panel rounded-none md:rounded-3xl overflow-hidden flex shadow-2xl border border-white/5 ">
+    
+    <aside class="w-20 lg:w-80 border-r border-outline-variant/20 bg-surface-container-low flex flex-col bg-blue-300">
+      <div class="p-6 border-b border-outline-variant/20 flex items-center justify-between">
+        <span class="hidden lg:block text-xl font-black tracking-tighter">ChatRMI</span>
+        <button (click)="logout()" class="text-on-surface-variant hover:text-error transition-colors">
+          <span class="material-symbols-outlined cursor-pointer text-red-500 font-bold">Sair</span>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-blue-300">
+        <div class="flex items-center gap-3 p-3 rounded-2xl bg-primary-container/10 border border-primary/20 cursor-pointer">
+          <div class="relative">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-12 h-12 rounded-full bg-surface-variant" alt="avatar">
+            <div class="absolute bottom-0 right-0 w-3 h-3 bg-tertiary border-2 border-surface-container-low rounded-full"></div>
+          </div>
+          <div class="hidden lg:block">
+            <p class="font-bold text-sm">Grupo Geral</p>
+            <p class="text-xs text-primary font-medium italic">Digitando...</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 p-3 rounded-2xl hover:bg-surface-variant/50 transition-all cursor-pointer group">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" class="w-12 h-12 rounded-full bg-surface-variant" alt="avatar">
+          <div class="hidden lg:block">
+            <p class="font-medium text-sm group-hover:text-primary transition-colors">Carlos (Você)</p>
+            <p class="text-xs text-on-surface-variant">Online</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="flex-1 flex flex-col bg-surface-container/30 backdrop-blur-md">
+      
+      <header class="p-4 lg:p-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container/50">
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary lg:hidden">menu</span>
+          <div>
+            <h2 class="font-bold lg:text-lg">Grupo Geral</h2>
+            <p class="text-xs text-tertiary flex items-center gap-1">
+              <span class="w-1.5 h-1.5 bg-tertiary rounded-full animate-pulse"></span>
+              3 usuários ativos
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div class="flex-1 overflow-y-auto p-4 lg:p-6 space-y-6">
+        
+        <div class="flex items-end gap-3 max-w-[80%]">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-8 h-8 rounded-full bg-surface-variant" alt="">
+          <div>
+            <p class="text-[10px] ml-2 mb-1 text-on-surface-variant font-bold">Carlos_Evan</p>
+            <div class="p-4 rounded-2xl rounded-bl-none bg-surface-variant text-on-surface shadow-sm">
+              Eae povo, Como está o progresso do trabalho de Sistemas Distribuídos?
+            </div>
+            <p class="text-[10px] ml-2 mt-1 text-on-surface-variant/50">18:42</p>
+          </div>
+        </div>
+
+        <div class="flex items-end gap-3 max-w-[80%] ml-auto flex-row-reverse">
+          <div class="flex flex-col items-end">
+            <div class="p-4 rounded-2xl rounded-br-none bg-primary-container text-black shadow-primary/10">
+              Tudo pronto por aqui. Acabei de fzr essa tela de agr.
+            </div>
+            <div class="flex items-center gap-1 mt-1 mr-2">
+              <p class="text-[10px] text-on-surface-variant/50">18:45</p>
+              <span class="material-symbols-outlined text-[14px] text-primary">visto(vácuo)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="p-4 lg:p-6 bg-surface-container/50 border-t border-outline-variant/20">
+        <form class="flex items-center gap-3 bg-surface-container-highest p-2 rounded-2xl border border-transparent focus-within:border-primary/50 transition-all shadow-inner">
+          <button type="button" class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">icon?</span>
+          </button>
+          
+          <input 
+            type="text" 
+            placeholder="Escreva sua mensagem..." 
+            class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant"
+          />
+
+          <button type="submit" class="w-12 h-12 rounded-xl bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600 shadow-lg shadow-primary/20 transition-all active:scale-95">
+            <span class="material-symbols-outlined">send</span>
+          </button>
+        </form>
+      </footer>
+
+    </section>
+  </main>
+</div>
