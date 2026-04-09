@@ -2,16 +2,23 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { LucideAngularModule, User, Mail, Lock, Eye, EyeOff } from 'lucide-angular';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, LucideAngularModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login implements OnInit{
   private router = inject(Router);
+  readonly User = User;
+  readonly Mail = Mail;
+  readonly Lock = Lock;
+  readonly Eye = Eye;
+  readonly EyeOff = EyeOff;
 
   ngOnInit(): void {
     const token = localStorage.getItem('user_token');

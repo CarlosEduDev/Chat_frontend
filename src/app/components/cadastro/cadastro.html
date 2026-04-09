@@ -102,106 +102,95 @@
     </div>
 
     <main class="relative w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 glass-panel overflow-hidden shadow-none border-none">
-        
-        <section class="hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-surface-container-low to-surface-container-lowest relative overflow-hidden" >
-            <div class="relative z-10">
-                <div class="flex items-center gap-2 mb-12">
-                   
-                    <span class="text-2xl font-black tracking-tighter text-on-surface">ChatRMI</span>
+    
+    <section class="hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-surface-container-low to-surface-container-lowest relative overflow-hidden">
+        <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-50">
+                <span class="text-2xl font-black tracking-tighter text-on-surface">ChatRMI</span>
+            </div>
+            <h1 class="text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                Bem vindo(a) <br/>
+                <span class="text-primary">ao ChatRMI.</span>
+            </h1>
+            <p class="text-on-surface-variant text-lg max-w-sm">
+                Um simples espaço para conversas profundas com outros usuários.
+            </p>
+        </div>
+        <div class="absolute inset-0 z-0 opacity-30">
+            <img alt="Night background" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+        </div>
+    </section>
+
+    <section class="p-8 md:p-16 flex flex-col justify-center bg-surface-container">
+        <div class="w-full max-w-md mx-auto">
+            <header class="mb-10 text-center lg:text-left">
+                <h2 class="text-3xl font-bold tracking-tight text-on-surface text-center mb-2">Crie conexões com ChatRMI!</h2>
+                <p class="text-on-surface-variant text-center">Seja bem-vindo ao nosso espaço.</p>
+            </header>
+
+            <form (ngSubmit)="onRegister()" class="space-y-6">
+                <div class="relative flex items-center py-2">
+                    <div class="flex-grow border-t border-outline-variant/30"></div>
+                    <span class="flex-shrink mx-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Crie a sua conta</span>
+                    <div class="flex-grow border-t border-outline-variant/30"></div>
                 </div>
-                
-                <h1 class="text-5xl font-extrabold tracking-tight leading-tight mb-6">
-                    Bem vindo(a) <br/>
-                    <span class="text-primary">ao ChatRMI.</span>
-                </h1>
-                <p class="text-on-surface-variant text-lg max-w-sm">
-                    Um simples espaço para conversas profundas com outros usuários.
-                </p>
-            </div>
 
-            <div class="absolute inset-0 z-0 opacity-30">
-                <img alt="Night background" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-            </div>
-        </section>
-
-        <section class="p-8 md:p-16 flex flex-col justify-center bg-surface-container">
-            <div class="w-full max-w-md mx-auto">
-                <header class="mb-10 text-center lg:text-left">
-                    <h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Crie conexões através do ChatRMI!</h2>
-                    <p class="text-on-surface-variant">Sei la oq.</p>
-                </header>
-
-                <form (ngSubmit)="onRegister()" class="space-y-6">
-                    
-
-                    <div class="relative flex items-center py-2">
-                        <div class="flex-grow border-t border-outline-variant/30"></div>
-                        <span class="flex-shrink mx-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Crie a sua conta</span>
-                        <div class="flex-grow border-t border-outline-variant/30"></div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-on-surface ml-1" for="name">Nome</label>
-                            <div class="relative group">
-                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary" >alternate_email</span>
-                                
-                                <input [(ngModel)]="name" name="name" class="w-full pl-12 pr-4 py-4 rounded-lg bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="email" placeholder="name@company.com" type="email"/>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-semibold text-on-surface ml-1" for="email">Email</label>
-                            <div class="relative group">
-                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary" >alternate_email</span>
-                                
-                                <input [(ngModel)]="email" name="email" class="w-full pl-12 pr-4 py-4 rounded-lg bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="email" placeholder="name@company.com" type="email"/>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <div class="flex justify-between items-center px-1">
-                                <label class="text-sm font-semibold text-on-surface" for="password">Senha</label>
-                                <a class="text-xs font-bold text-primary hover:text-primary-fixed transition-colors" href="#">Esqueceu a senha?</a>
-                            </div>
-                            <div class="relative group">
-                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl transition-colors group-focus-within:text-primary">lock</span>
-                                <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" class="w-full pl-12 pr-12 py-4 rounded-xl bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
-                                <button (click)="togglePassword()" class="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors " type="button">
-                                    <span class="material-symbols-outlined">visibility</span>
-                                </button>
-                            </div>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-on-surface ml-1" for="name">Nome</label>
+                        <div class="relative group">
+                            <lucide-icon [name]="User" 
+                                class="absolute left-2.5 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant transition-colors group-focus-within:text-primary">
+                            </lucide-icon>
+                            <input [(ngModel)]="name" name="name" type="text" id="name" placeholder="Seu nome completo"
+                                class="w-full pl-14 pr-4 py-4 rounded-xl bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" />
                         </div>
                     </div>
 
-                    <!-- <div class="flex items-center gap-2 px-1">
-                        <input [(ngModel)] = "rememberMe" name="rememberMe" type="checkbox" id="remember" class="w-4 h-4 rounded border-outline-variant bg-surface-container-highest text-primary focus:ring-primary/40 focus:ring-offset-surface-container"/>
-                        <label class="text-sm text-on-surface-variant cursor-pointer select-none" for="remember">Lembrar desta conta</label>
-                    </div> -->
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-on-surface ml-1" for="email">Email</label>
+                        <div class="relative group">
+                            <lucide-icon [name]="Mail" 
+                                class="absolute left-2.5 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant transition-colors group-focus-within:text-primary">
+                            </lucide-icon>
+                            <input [(ngModel)]="email" name="email" type="email" id="email" placeholder="email@exemplo.com"
+                                class="w-full pl-14 pr-4 py-4 rounded-xl bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" />
+                        </div>
+                    </div>
 
-                    <button class="w-full py-4 rounded-xl mt-10 
-                            bg-error-container text-on-secondary-container 
-                            hover:bg-primary hover:text-on-primary 
-                            font-bold text-lg shadow-lg 
-                            active:scale-[0.98] transition-all duration-300 
-                            relative overflow-hidden group cursor-pointer" 
-                        type="submit">
+                    <div class="space-y-2">
+                            <label class="text-sm font-semibold text-on-surface ml-1" for="password">Senha</label>
+                        <div class="relative group">
+                            <lucide-icon [name]="Lock" 
+                                class="absolute left-2.5 top-1/2 -translate-y-1/2 w-5 h-5 text-on-surface-variant transition-colors group-focus-within:text-primary">
+                            </lucide-icon>
+                            <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" name="password" id="password" placeholder="••••••••"
+                                class="w-full pl-14 pr-14 py-4 rounded-xl bg-surface-container-highest border border-outline-variant/30 focus:border-primary/50 focus:ring-4 focus:ring-primary/10 text-on-surface placeholder:text-on-surface-variant transition-all outline-none" />
+                            
+                            <button (click)="togglePassword()" type="button" class="absolute right-5 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">
+                                <lucide-icon [name]="showPassword ? Eye : EyeOff" class="w-5 h-5"></lucide-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" 
+                    class="w-full py-4 rounded-xl mt-10 bg-[#1e3a8a] hover:bg-[#1e40af] text-white hover:text-on-primary font-bold text-lg shadow-lg active:scale-[0.98] transition-all duration-300 relative overflow-hidden group cursor-pointer">
                     <span class="relative z-10">Finalizar Cadastro</span>
                     <div class="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </button>
-                </form>
+            </form>
 
-                <footer class="mt-10 text-center">
-                    <p class="text-on-surface-variant">
-                        Já possui conta? 
-                        <a class="text-primary font-bold hover:underline ..." 
-                        routerLink="/login"> Faça login
-                        </a>
-                    </p>
-                </footer>
-            </div>
-        </section>
-    </main>
+            <footer class="mt-10 text-center">
+                <p class="text-on-surface-variant">
+                    Já possui conta? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4 decoration-2" routerLink="/login"> Fazer login</a>
+                </p>
+            </footer>
+        </div>
+    </section>
+</main>
 
     
 

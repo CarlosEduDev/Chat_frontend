@@ -2,15 +2,21 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { LucideAngularModule, User, Mail, Lock, Eye, EyeOff } from 'lucide-angular'; 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, LucideAngularModule],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css',
 })
 export class Cadastro {
+  readonly User = User;
+  readonly Mail = Mail;
+  readonly Lock = Lock;
+  readonly Eye = Eye;
+  readonly EyeOff = EyeOff;
   private router = inject(Router);
 
   name = '';
