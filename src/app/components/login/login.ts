@@ -56,7 +56,6 @@ export class Login implements OnInit{
       return false;
     }
 
-    alert("Login bem-sucedido!");
     return true;
   }
 
@@ -90,8 +89,21 @@ export class Login implements OnInit{
         // Se cair aqui, o email ou senha não existem no banco
         this.isLoading = false;
         console.error("Erro ao autenticar:", err);
-        alert("E-mail ou senha incorretos.");
-      }
+
+        // Isso vai nos dizer o "Status" do erro no console
+  console.log("Status do Erro:", err.status);
+  console.log("Mensagem Completa:", err.message);
+
+  if (err.status === 0) {
+    alert("O servidor está desligado ou o CORS não está configurado.");
+  } else if (err.status === 401 || err.status === 403) {
+    alert("E-mail ou senha incorretos (Resposta do Banco).");
+  } else if (err.status === 404) {
+    alert("A URL /login não foi encontrada no servidor.");
+  } else {
+    alert("Erro desconhecido: " + err.message);
+  }
+   }
     });
 
 
