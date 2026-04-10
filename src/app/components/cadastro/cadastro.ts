@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, User, Mail, Lock, Eye, EyeOff } from 'lucide-angular'; 
 
+
+const BASE_URL = 'https://chat-sd-titw.onrender.com';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -18,6 +21,7 @@ export class Cadastro {
   readonly Eye = Eye;
   readonly EyeOff = EyeOff;
   private router = inject(Router);
+  private http = inject(HttpClient);
 
   name = '';
   email = '';
@@ -61,25 +65,41 @@ export class Cadastro {
   }
 
     
-  onRegister() {
-    console.log('Tentativa de cadastro:', { name: this.name, email: this.email });
+    onRegister() {
+    const isValid = this.validateFields(this.name, this.email, this.password);
 
-    const isValid = this.validateFields(this.name, this.email, this.password); 
-    //Vai ser preciso checar se o endpoint da API permite cadastro
-    console.log('Dados de cadastro:', {
-        name: this.name,
-        email: this.email,
-        password: this.password
-      });
-    if (isValid) {
-
-      alert('Cadastro realizado com sucesso! Redirecionando...');
-    
-      this.router.navigate(['/login']); 
-    }// Adicionar mais uma verificação para o caso do usuário ter uma conta
-     else {
-      //O caso onde os dados estão digitados errados ou algo do tipo
-      alert('Erro no cadastro. Por favor, verifique os dados informados.');
+    if (!isValid) {
+      alert('Erro no cadastro. Verifique os dados.');
+      return;
     }
-  } 
+
+    const registerData = {
+      username    : this.name,
+      email: this.email,
+      password: this.password
+    };
+
+    this.http.post<any>(`${BASE_URL}/api/register`, registerData)
+      .subscribe({
+        next: (res) => {
+          console.log("Cadastro realizado:", res);
+
+          alert(res.message || "Usuário cadastrado com sucesso!");
+
+          this.router.navigate(['/login']);
+        },
+
+        error: (err) => {
+          alert(`Erro no cadastro:${err} `);
+
+          if (err.status === 0) {
+            alert("Servidor offline ou problema de CORS.");
+          } else if (err.status === 400) {
+            alert("Dados inválidos ou usuário já existe.");
+          } else {
+            alert("Erro ao cadastrar: " + err.message);
+          }
+        }
+      });
+  }
 }
