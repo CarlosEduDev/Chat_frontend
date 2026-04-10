@@ -1,106 +1,97 @@
- 
-      
-      <div class="fixed inset-0 bg-[#0B1326] text-[#DAE2FD] flex flex-col h-screen w-screen overflow-hidden">
-    <!-- bg-[#0B1326
-     bg-[#2563EB]/10
-     bg-[#2D3449]
-    -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-      <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[#2563EB]/10 blur-[120px]"></div>
-      <div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-[#4AE176]/5 blur-[120px]"></div>
-    </div>
-
-    <main class="flex-1 flex w-full h-full overflow-hidden">
-
-      <aside class="w-20 lg:w-80 border-r border-[#434655]/30 bg-[#171F33] flex flex-col">
-        <div class="p-6 h-[73px] border-b border-[#434655]/30 flex items-center justify-between">
-          <span class="hidden lg:block text-xl font-black tracking-tighter text-[#DAE2FD]">ChatRMI</span>
-          <button (click)="logout()" class="text-[#C3C6D7] hover:text-red-400 transition-colors flex items-center gap-2 group">
-            <lucide-icon [name]="LogOut" class="w-5 h-5 group-hover:scale-110 transition-transform"></lucide-icon>
-            <span class="hidden lg:block text-xs font-bold uppercase tracking-wider">Sair</span>
-          </button>
-        </div>
-
-        <div class="flex-1 overflow-y-auto p-4 space-y-4">
-          <div *ngFor="let user of users"
-            (click)="selectContact(user)"
-            class="flex items-center gap-3 p-3 rounded-2xl cursor-pointer hover:bg-[#2D3449] transition">
-
-          <div class="relative">
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed={{user.username}}" 
-                class="w-12 h-12 rounded-full bg-[#0B1326]" />
-            
-            <div class="absolute bottom-0 right-0 w-3 h-3 bg-[#4AE176] border-2 border-[#171F33] rounded-full"></div>
-          </div>
-
-          <div class="hidden lg:block">
-            <p class="font-bold text-sm text-[#DAE2FD]">
-              {{ user.username }}
-            </p>
-            <p class="text-xs text-[#C3C6D7]">
-              {{ user.email }}
-            </p>
-          </div>
-
-        </div>
-        </div>
-      </aside>
-
-      <section class="flex-1 flex flex-col bg-[#0B1326]/40 backdrop-blur-md">
-        
-        <header class="p-4 lg:p-6 border-b border-[#434655]/30 flex items-center justify-between bg-[#171F33]/40">
-          <div class="flex items-center gap-4">
-            <lucide-icon [name]="Menu" class="text-[#2563EB] lg:hidden w-6 h-6"></lucide-icon>
-            <div>
-              <h2 class="font-bold lg:text-lg text-[#DAE2FD]">
-                {{ selectedContact?.username || 'Selecione um contato' }}
-              </h2>
-              <p class="text-xs text-[#4AE176] flex items-center gap-1.5 font-medium">
-                {{ selectedContact?.email || 'Nenhum contato selecionado' }}
-              </p>
-            </div>
-          </div>
-        </header>
-
-        <div class="flex-1 overflow-y-auto p-4 lg:p-8 space-y-8">
+    
           
-        <div *ngFor="let msg of messages"
-            class="flex"  
-            [class.justify-end]="msg.senderEmail === getMyEmail()">
-
-        <div class="max-w-[70%] p-4 rounded-2xl"
-            [ngClass]="msg.senderEmail === getMyEmail() 
-              ? 'bg-[#2563EB] text-white rounded-br-none'
-              : 'bg-[#2D3449] text-[#DAE2FD] rounded-bl-none'">
-
-          {{ msg.message }}
-
-          <div class="text-[10px] mt-2 opacity-70 text-right">
-            {{ msg.senderEmail === getMyEmail() ? 'Você' : msg.senderEmail }}
-          </div>
-
+          <div class="fixed inset-0 bg-[#0B1326] text-[#DAE2FD] flex flex-col h-screen w-screen overflow-hidden">
+    
+        <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+          <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-[#2563EB]/10 blur-[120px]"></div>
+          <div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-[#4AE176]/5 blur-[120px]"></div>
         </div>
 
-      </div>
+        <main class="flex-1 flex w-full h-full overflow-hidden">
 
-        </div>
+          <aside class="w-20 lg:w-80 border-r border-[#434655]/30 bg-[#171F33] flex flex-col">
+            <div class="p-6 h-[73px] border-b border-[#434655]/30 flex items-center justify-between">
+              <span class="hidden lg:block text-xl font-black tracking-tighter text-[#DAE2FD]">ChatRMI</span>
+              <button (click)="logout()" class="text-[#C3C6D7] hover:text-red-400 transition-colors flex items-center gap-2 group">
+                <lucide-icon [name]="LogOut" class="w-5 h-5 group-hover:scale-110 transition-transform"></lucide-icon>
+                <span class="hidden lg:block text-xs font-bold uppercase tracking-wider">Sair</span>
+              </button>
+            </div>
 
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+              <div *ngFor="let user of users"
+                (click)="selectContact(user)"
+                class="flex items-center gap-3 p-3 rounded-2xl cursor-pointer hover:bg-[#2D3449] transition">
 
-        <footer class="p-4 lg:p-6 bg-[#171F33]/60 border-t border-[#434655]/30">
-          <form (submit)="sendMessage(); $event.preventDefault()" class="flex items-center gap-3 bg-[#2D3449] p-2 pl-4 rounded-2xl border border-[#434655]/40 focus-within:border-[#2563EB]/60 transition-all">
-            <button type="button" class="p-2 text-[#C3C6D7] hover:text-[#2563EB] transition-colors">
-              <lucide-icon [name]="Paperclip" class="w-5 h-5"></lucide-icon>
-            </button>
+              <div class="relative">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed={{user.username}}" 
+                    class="w-12 h-12 rounded-full bg-[#0B1326]" />
+                
+                <div class="absolute bottom-0 right-0 w-3 h-3 bg-[#4AE176] border-2 border-[#171F33] rounded-full"></div>
+              </div>
+
+              <div class="hidden lg:block">
+                <p class="font-bold text-sm text-[#DAE2FD]">
+                  {{ user.username }}
+                </p>
+                <p class="text-xs text-[#C3C6D7]">
+                  {{ user.email }}
+                </p>
+              </div>
+
+            </div>
+            </div>
+          </aside>
+
+          <section class="flex-1 flex flex-col bg-[#0B1326]/40 backdrop-blur-md">
             
-            <input [(ngModel)]="messageText" name="messageText" type="text" placeholder="Escreva sua mensagem..." 
-              class="flex-1 bg-transparent border-none  text-[#DAE2FD] placeholder:text-[#C3C6D7] py-3"/>
+            <header class="p-4 lg:p-6 border-b border-[#434655]/30 flex items-center justify-between bg-[#171F33]/40">
+              <div class="flex items-center gap-4">
+                <lucide-icon [name]="Menu" class="text-[#2563EB] lg:hidden w-6 h-6"></lucide-icon>
+                <div>
+                  <h2 class="font-bold lg:text-lg text-[#DAE2FD]">
+                    {{ selectedContact?.username || 'Selecione um contato' }}
+                  </h2>
+                  <p class="text-xs text-[#4AE176] flex items-center gap-1.5 font-medium">
+                    {{ selectedContact?.email || 'Nenhum contato selecionado' }}
+                  </p>
+                </div>
+              </div>
+            </header>
 
-            <button type="submit" class="w-12 h-12 rounded-xl bg-[#2563EB] text-white flex items-center justify-center hover:bg-[#1D4ED8] transition-all shadow-lg  active:scale-95">
-              <lucide-icon [name]="Send" class="w-5 h-5"></lucide-icon>
-            </button>
-          </form>
-        </footer>
+            <div class="flex-1 overflow-y-auto p-4 lg:p-8 space-y-8">
+              
+            <div *ngFor="let msg of messages"
+              class="flex w-full mb-4"  
+              [ngClass]="isMyMessage(msg) ? 'justify-end' : 'justify-start'">
 
-      </section>
-    </main>
-  </div>
+              <div class="max-w-[70%] p-4 rounded-2xl shadow-sm"
+                [ngClass]="isMyMessage(msg) 
+                  ? 'bg-[#2563EB] text-white rounded-br-none' 
+                  : 'bg-[#2D3449] text-[#DAE2FD] rounded-bl-none'">
+
+                <p class="text-sm leading-relaxed">{{ msg.message }}</p>
+              </div>
+            </div>
+
+            </div>
+
+
+            <footer class="p-4 lg:p-6 bg-[#171F33]/60 border-t border-[#434655]/30">
+              <form (ngSubmit)="sendMessage(); $event.preventDefault()" class="flex items-center gap-3 bg-[#2D3449] p-2 pl-4 rounded-2xl border border-[#434655]/40 focus-within:border-[#2563EB]/60 transition-all">
+                <button type="button" class="p-2 text-[#C3C6D7] hover:text-[#2563EB] transition-colors">
+                  <lucide-icon [name]="Paperclip" class="w-5 h-5"></lucide-icon>
+                </button>
+                
+                <input [(ngModel)]="messageText" name="messageText" type="text" placeholder="Escreva sua mensagem..." 
+                  class="flex-1 bg-transparent border-none  text-[#DAE2FD] placeholder:text-[#C3C6D7] py-3"/>
+
+                <button type="submit" class="w-12 h-12 rounded-xl bg-[#2563EB] text-white flex items-center justify-center hover:bg-[#1D4ED8] transition-all shadow-lg  active:scale-95">
+                  <lucide-icon [name]="Send" class="w-5 h-5"></lucide-icon>
+                </button>
+              </form>
+            </footer>
+
+          </section>
+        </main>
+      </div>
