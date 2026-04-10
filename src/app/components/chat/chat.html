@@ -11,7 +11,11 @@
 
           <aside class="w-20 lg:w-80 border-r border-[#434655]/30 bg-[#171F33] flex flex-col">
             <div class="p-6 h-[73px] border-b border-[#434655]/30 flex items-center justify-between">
-              <span class="hidden lg:block text-xl font-black tracking-tighter text-[#DAE2FD]">ChatRMI</span>
+              <div class="hidden lg:flex text-xl font-black tracking-tighter">
+            <span class="text-[#DAE2FD]">Team</span>
+            
+            <span class="text-[#446ffd]">Room</span>
+          </div>
               <button (click)="logout()" class="text-[#C3C6D7] hover:text-red-400 transition-colors flex items-center gap-2 group">
                 <lucide-icon [name]="LogOut" class="w-5 h-5 group-hover:scale-110 transition-transform"></lucide-icon>
                 <span class="hidden lg:block text-xs font-bold uppercase tracking-wider">Sair</span>
