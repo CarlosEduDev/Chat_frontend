@@ -1,11 +1,13 @@
   import { Component, inject, OnInit } from '@angular/core';
   import { Router } from '@angular/router';
   import { LucideAngularModule, User, Mail, Lock, Eye, EyeOff, LogOut, Menu, Send, CheckCheck, Paperclip} from 'lucide-angular';
+  import { CommonModule } from '@angular/common';
+  import { FormsModule } from '@angular/forms';
 
-
+  const BASE_URL = 'https://chat-sd-titw.onrender.com';
   @Component({
     selector: 'app-chat',
-    imports: [LucideAngularModule],
+    imports: [LucideAngularModule, CommonModule, FormsModule],
     templateUrl: './chat.html',
     styleUrl: './chat.css',
   })
@@ -22,6 +24,7 @@
     readonly CheckCheck = CheckCheck;
     readonly Paperclip = Paperclip;
 
+
     users: { username: string; email: string }[] = [];
   selectedContact: { username: string; email: string } | null = null;
   messages: any[] = [];
@@ -33,7 +36,7 @@
 
   async loadUsers() {
     try {
-      const res = await fetch('/api/users', {
+      const res = await fetch(`${BASE_URL}/api/users`, {
         headers: {
           Authorization: localStorage.getItem('user_token') || ''
         }
@@ -55,11 +58,15 @@
     if (!this.selectedContact) return;
 
     try {
-      const res = await fetch(`/api/messages/${this.selectedContact.email}`, {
-        headers: {
-          Authorization: localStorage.getItem('user_token') || ''
+      
+      const res = await fetch(
+        `${BASE_URL}/api/messages/${this.selectedContact.email}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem('user_token') || ''
+          }
         }
-      });
+      );
 
       this.messages = await res.json();
 
@@ -68,17 +75,13 @@
       this.messages = [];
     }
   }
-
   async sendMessage() {
     if (!this.selectedContact || !this.messageText.trim()) return;
 
     try {
-      await fetch('/api/messages', {
+      await fetch(`${BASE_URL}/api/messages`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: localStorage.getItem('user_token') || ''
-        },
+        headers: this.getHeaders(),
         body: JSON.stringify({
           receiverEmail: this.selectedContact.email,
           message: this.messageText
@@ -92,7 +95,12 @@
       console.error(e);
     }
   }
-
+getHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    Authorization: localStorage.getItem('user_token') || ''
+  };
+}
   getMyEmail() {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user?.email || '';

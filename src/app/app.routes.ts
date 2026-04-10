@@ -6,11 +6,11 @@ import { Cadastro } from './components/cadastro/cadastro';
 
 export const routes: Routes = [
     {path: 'login', component: Login},
-    // {
-    //     path: 'chat',
-    //     component: Chat,
-    //     canActivate: [authGuard]
-    // },
+    {
+        path: 'chat',
+        component: Chat,
+        // canActivate: [authGuard]
+    },
     {path: '', redirectTo: 'login', pathMatch: 'full' },
     {path: 'cadastro', component: Cadastro},
     {path: 'chat', component: Chat}
